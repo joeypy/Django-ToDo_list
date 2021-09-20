@@ -1,16 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Task Form</title>
-</head>
-<body>
-    <h3>Task form</h3>
-    <a href="{% url 'tasks' %}">Back Task</a>
+{% extends 'core/base.html' %}
+{% block title %}Add Task{% endblock title %}
+
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Back</a>
+</div>
+<div class="card-body">
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit">
+        <input class="btn" type="submit" value="Submit">
     </form>
-</body>
-</html>
+</div>
+{% endblock content %}

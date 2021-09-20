@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Register</title>
-</head>
-<body>
-    <h1>Register</h1>
+{% extends 'core/base.html' %}
+{% block title %}Register{% endblock title %}
+<!--{% load static %}-->
+
+{% block content %}
+
+<div class="header-bar">
+    <h1 style="margin: auto;">Register</h1>
+</div>
+<div style="padding: 3rem;">
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
+        <label for="id_username">{{ form.username.label }}</label>
+        {{ form.username }}
+        <label for="id_password1">{{ form.password1.label }}</label>
+        {{ form.password1 }}
+        <label for="id_password2">{{ form.password2.label }}</label>
+        {{ form.password2 }}
+        <input style="margin-top: 2rem;" class="btn" type="submit" value="Register">
     </form>
     <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-</body>
-</html>
+</div>
+{% endblock content %}
